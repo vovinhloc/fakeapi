@@ -1,0 +1,24 @@
+# Bỏ qua toàn bộ thư mục node_modules
+node_modules/
+
+# Bỏ qua tất cả các file .log
+*.log
+
+# Bỏ qua toàn bộ thư mục build
+build/
+
+# Bỏ qua tất cả các file .tmp trong thư mục tạm
+tmp/*.tmp
+
+# Bỏ qua toàn bộ thư mục node_modules trong bất kỳ thư mục con nào
+**/node_modules/
+
+# Chỉ bỏ qua file .env ở thư mục gốc
+/.env
+
+# Không bỏ qua file !important.log
+!.important.log
+
+# Bỏ qua tất cả các file trong thư mục docs ngoại trừ file README.md
+docs/*
+!docs/README.md
