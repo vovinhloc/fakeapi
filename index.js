@@ -27,10 +27,28 @@ const options = [
 app.get('/api/optionsAll', (req, res) => {
     res.json(options);
 });
-const data = [ // Dữ liệu mẫu, bạn có thể thay thế bằng dữ liệu của bạn
-    'Apple', 'Banana', 'Orange', 'Grape', 'Watermelon', 'Pineapple', 'Mango', 'Strawberry', 'Blueberry', 'Raspberry'
+// const data = [ // Dữ liệu mẫu, bạn có thể thay thế bằng dữ liệu của bạn
+//     'Apple', 'Banana', 'Orange', 'Grape', 'Watermelon', 'Pineapple', 'Mango', 'Strawberry', 'Blueberry', 'Raspberry'
+// ];
+const data = [ // Dữ liệu mẫu
+    { id: 1, name: 'Apple' },
+    { id: 2, name: 'Banana' },
+    { id: 3, name: 'Orange' },
+    { id: 4, name: 'Grape' },
+    // ... thêm các object khác
 ];
 app.get('/api/options', (req, res) => {
+    const query = req.query.q?.toLowerCase() || ''; // Lấy query từ request
+
+    // Lọc dữ liệu dựa trên query (không phân biệt hoa thường)
+    // const filteredData = data.filter(item => item.toLowerCase().includes(query));
+    const filteredData = data.filter(item => 
+        item.name.toLowerCase().includes(query) 
+    );
+
+    res.json(filteredData); // Trả về kết quả dưới dạng JSON
+});
+app.get('/api/options1', (req, res) => {
     const query = req.query.q?.toLowerCase() || ''; // Lấy query từ request
 
     // Lọc dữ liệu dựa trên query (không phân biệt hoa thường)
