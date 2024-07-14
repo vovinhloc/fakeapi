@@ -27,7 +27,17 @@ const options = [
 app.get('/api/options', (req, res) => {
     res.json(options);
 });
+const data = [ // Dữ liệu mẫu, bạn có thể thay thế bằng dữ liệu của bạn
+    'Apple', 'Banana', 'Orange', 'Grape', 'Watermelon', 'Pineapple', 'Mango', 'Strawberry', 'Blueberry', 'Raspberry'
+];
+app.get('/api/getData', (req, res) => {
+    const query = req.query.q?.toLowerCase() || ''; // Lấy query từ request
 
+    // Lọc dữ liệu dựa trên query (không phân biệt hoa thường)
+    const filteredData = data.filter(item => item.toLowerCase().includes(query));
+
+    res.json(filteredData); // Trả về kết quả dưới dạng JSON
+});
 app.listen(port, () => {
     console.log(`API server listening at http://localhost:${port}`);
 });
