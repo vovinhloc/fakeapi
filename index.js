@@ -24,13 +24,13 @@ const options = [
     "dưa hấu"
 ];
 
-app.get('/api/options', (req, res) => {
+app.get('/api/optionsAll', (req, res) => {
     res.json(options);
 });
 const data = [ // Dữ liệu mẫu, bạn có thể thay thế bằng dữ liệu của bạn
     'Apple', 'Banana', 'Orange', 'Grape', 'Watermelon', 'Pineapple', 'Mango', 'Strawberry', 'Blueberry', 'Raspberry'
 ];
-app.get('/api/getData', (req, res) => {
+app.get('/api/options', (req, res) => {
     const query = req.query.q?.toLowerCase() || ''; // Lấy query từ request
 
     // Lọc dữ liệu dựa trên query (không phân biệt hoa thường)
